@@ -1,0 +1,266 @@
+WHILEFORM APP CODE:
+namespace WhileFormApp
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            while (picHero.Top < picCat.Top - 50)
+            {
+                picHero.Top += 10;
+                Application.DoEvents();
+                System.Threading.Thread.Sleep(100);
+            }
+            lblStatus.Text = "You have reached the cat!";
+        }    
+    }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+TREASUREHUNTAPP CODE:
+namespace TreasureHuntApp
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            int treasure = 1;
+
+            lstScore.Items.Clear();
+
+            while (treasure <= 10)
+            {
+                lstScore.Items.Add("Treasure " + treasure + " collected!");
+                treasure++;
+            }
+        }
+    }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+GUESSTHESECRETNUMBER CODE:
+namespace GuessTheSecret
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnGuess_Click(object sender, EventArgs e)
+        {
+            int secretNumber = 7;
+            int userGuess = Convert.ToInt32(txtGuess.Text);
+
+            if (userGuess == secretNumber)
+            {
+                lblMessage.Text = "Correct! You guessed the secret number!";
+            }
+            else
+            {
+                lblMessage.Text = "Wrong guess! Try again.";
+            }
+    }
+    }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+COIN COLLECTOR CODE: 	
+
+namespace CoinCollector
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCollect_Click(object sender, EventArgs e)
+        {
+            int coins = 1;
+            lblCoins.Text = "";
+
+            do
+            {
+                lblCoins.Text += "Collected coin #" + coins + "\n";
+                coins++;
+            }
+            while (coins <= 5);
+        }
+    }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+MONSTERBATTLE CODE:
+
+namespace MonsterBattle
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnFight_Click(object sender, EventArgs e)
+        {
+            int monsterHP = 20;
+            lblResult.Text = "";
+
+            do
+            {
+                monsterHP -= 5;
+                lblResult.Text += "Monster HP left: " + monsterHP + "\n";
+            }
+            while (monsterHP > 0);
+
+            lblResult.Text += "Monster defeated!";
+        }
+    }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+CHOOSEAWEAPON CODE: 
+
+namespace ChooseWeapon
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnAttack_Click(object sender, EventArgs e)
+        {
+            string selectedWeapon = cmbWeapon.Text;
+
+            switch (selectedWeapon)
+            {
+                case "Sword":
+                    lblResult.Text = "You slashed with your Sword!";
+                    break;
+                case "Bow":
+                    lblResult.Text = "You shot an arrow with your Bow!";
+                    break;
+                case "Magic":
+                    lblResult.Text = "You cast a fire spell!";
+                    break;
+                default:
+                    lblResult.Text = "Please select a weapon!";
+                    break;
+            }
+        }
+    }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+CHOOSEADOOR CODE:
+namespace ChooseADoor
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            string doorChoice = txtDoor.Text;
+
+            switch (doorChoice)
+            {
+                case "1":
+                    lblResult.Text = "You found a chest full of gold!";
+                    break;
+                case "2":
+                    lblResult.Text = "A sleeping dragon is inside!";
+                    break;
+                case "3":
+                    lblResult.Text = "You found a secret exit!";
+                    break;
+                default:
+                    lblResult.Text = "Invalid door! Choose 1, 2, or 3.";
+                    break;
+            }
+        }
+    }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+HEALTHCOLLECTOR CODE: 
+
+namespace HealthCollector
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnHeal_Click(object sender, EventArgs e)
+        {
+            progressBar1.Value = 0;
+
+            for (int health = 0; health <= 100; health += 20)
+            {
+                progressBar1.Value = health;
+                lblHealth.Text = "❤️ Health: " + health + "%";
+
+                Application.DoEvents();
+                System.Threading.Thread.Sleep(500);
+            }
+
+            MessageBox.Show("Full Health!");
+        }
+    }
+}
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+STARCOLLECTOR CODE:
+
+namespace StarCollector
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnStars_Click(object sender, EventArgs e)
+        {
+            string stars = "";
+
+            for (int i = 1; i <= 10; i++)
+            {
+                stars += "⭐";
+            }
+
+            MessageBox.Show(stars);
+        }
+    }
+}
+
